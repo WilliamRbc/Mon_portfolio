@@ -184,7 +184,7 @@ columnDefs = [
 ]
 
 # Charger un exemple de fichier GPX pour la visualisation initiale
-df_gpx = lire_gpx(r'01-runkeeper-data-export-79592130-2024-09-24-083524/2024-09-08-173854.gpx')
+df_gpx = lire_gpx(r'https://github.com/WilliamRbc/Runkeeper_Dashboard/blob/551ce4a1d88719bcc6e7f765317a552b427e3d14/01-runkeeper-data-export-79592130-2024-09-24-083524/2024-06-17-183552.gpx')
 df_gpx = calculer_distance(df_gpx)
 fig = creer_carte(df_gpx)
 fig_deniv = creer_graphique_denivele(df_gpx)
