@@ -11,7 +11,7 @@ from dash import callback_context
 
 # Charger les données de l'export Runkeeper
 def load_runkeeper_data(file_path):
-    df = pd.read_csv(file_path)
+    df = pd.read_csv(file_path, on_bad_lines='skip')
     df['Date'] = pd.to_datetime(df['Date'], format='%d/%m/%Y %H:%M')
     df['Week'] = df['Date'].dt.strftime('%U')
     df['Year'] = df['Date'].dt.strftime('%Y')
@@ -164,7 +164,7 @@ app = app.server
 
 
 # Charger et préparer les données
-df1 = load_runkeeper_data(r'https://github.com/WilliamRbc/Runkeeper_Dashboard/blob/c0e687ea613771fbf0728ac1438700b3f0565442/01-runkeeper-data-export-79592130-2024-09-24-083524/cardioActivities.csv', on_bad_lines='skip')
+df1 = load_runkeeper_data(r'https://github.com/WilliamRbc/Runkeeper_Dashboard/blob/c0e687ea613771fbf0728ac1438700b3f0565442/01-runkeeper-data-export-79592130-2024-09-24-083524/cardioActivities.csv')
 df2_full = prepare_weekly_activity_data(df1)
 df4 = calculate_duration(df1)
 
@@ -184,7 +184,7 @@ columnDefs = [
 ]
 
 # Charger un exemple de fichier GPX pour la visualisation initiale
-df_gpx = lire_gpx(r'https://github.com/WilliamRbc/Runkeeper_Dashboard/blob/551ce4a1d88719bcc6e7f765317a552b427e3d14/01-runkeeper-data-export-79592130-2024-09-24-083524/2024-06-17-183552.gpx', on_bad_lines='skip')
+df_gpx = lire_gpx(r'https://github.com/WilliamRbc/Runkeeper_Dashboard/blob/551ce4a1d88719bcc6e7f765317a552b427e3d14/01-runkeeper-data-export-79592130-2024-09-24-083524/2024-06-17-183552.gpx')
 df_gpx = calculer_distance(df_gpx)
 fig = creer_carte(df_gpx)
 fig_deniv = creer_graphique_denivele(df_gpx)
