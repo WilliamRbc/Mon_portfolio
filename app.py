@@ -11,7 +11,7 @@ from dash import callback_context
 
 # Charger les données de l'export Runkeeper
 def load_runkeeper_data(file_path):
-    df = pd.read_csv(file_path, on_bad_lines='skip')
+    df = pd.read_csv(file_path, on_bad_lines='skip', encoding='utf-8')
     df['Date'] = pd.to_datetime(df['Date'], format='%d/%m/%Y %H:%M')
     df['Week'] = df['Date'].dt.strftime('%U')
     df['Year'] = df['Date'].dt.strftime('%Y')
