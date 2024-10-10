@@ -6,4 +6,4 @@ plotly.express
 dash_ag_grid
 gpxpy
 datetime
-geodesic
+geopy.distance
