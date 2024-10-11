@@ -165,7 +165,7 @@ app = app.server
 
 
 # Charger et préparer les données
-df1 = load_runkeeper_data(r'01-runkeeper-data-export-79592130-2024-09-24-083524/cardioActivities.csv')
+df1 = load_runkeeper_data('01-runkeeper-data-export-79592130-2024-09-24-083524/cardioActivities.csv')
 df2_full = prepare_weekly_activity_data(df1)
 df4 = calculate_duration(df1)
 
