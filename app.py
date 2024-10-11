@@ -10,8 +10,8 @@ from dash import callback_context
 
 
 # Charger les données de l'export Runkeeper
-def load_runkeeper_data(file_path):
-    df = pd.read_csv(file_path, on_bad_lines='skip', encoding='utf-8')
+def load_runkeeper_data():
+    df = pd.read_csv(r'01-runkeeper-data-export-79592130-2024-09-24-083524/cardioActivities.csv', on_bad_lines='skip', encoding='utf-8')
     df.columns = df.columns.str.strip().str.lower()
     df['Date'] = pd.to_datetime(df['Date'], format='%d/%m/%Y %H:%M')
     df['Week'] = df['Date'].dt.strftime('%U')
@@ -165,7 +165,7 @@ app = app.server
 
 
 # Charger et préparer les données
-df1 = load_runkeeper_data('01-runkeeper-data-export-79592130-2024-09-24-083524/cardioActivities.csv')
+df1 = load_runkeeper_data()
 df2_full = prepare_weekly_activity_data(df1)
 df4 = calculate_duration(df1)
 
