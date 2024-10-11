@@ -160,7 +160,6 @@ def creer_graphique_secteurs_duree(df):
 
 
 # Initialisation de l'application Dash
-server = Flask(__name__)  # L'objet Flask
 app = Dash(__name__, external_stylesheets=["https://use.fontawesome.com/releases/v5.15.4/css/all.css"])
 app = app.server
 
