@@ -13,43 +13,43 @@ from dash import callback_context
 def load_runkeeper_data():
     df = pd.read_csv(r'01-runkeeper-data-export-79592130-2024-09-24-083524/cardioActivities.csv', on_bad_lines='skip', encoding='utf-8')
     df.columns = df.columns.str.strip().str.lower()
-    df['date'] = pd.to_datetime(df['ate'], format='%d/%m/%Y %H:%M')
+    df['date'] = pd.to_datetime(df['date'], format='%d/%m/%Y %H:%M')
     df['week'] = df['date'].dt.strftime('%U')
     df['year'] = df['date'].dt.strftime('%Y')
     return df[df['year'] == '2024']  # Filtrer uniquement les données de 2024
 
 # Préparer les données pour les activités par semaine
 def prepare_weekly_activity_data(df):
-    df_sorted = df.sort_values(by="Week")
-    df_grouped = df_sorted.groupby(['Week', 'Type'])[['Distance(km)']].sum().reset_index()
+    df_sorted = df.sort_values(by="week")
+    df_grouped = df_sorted.groupby(['week', 'type'])[['distance(km)']].sum().reset_index()
     
     # Créer une liste des semaines et combiner avec les types d'activités
     weeks = pd.Series([f'{i:02}' for i in range(1, 53)])
     current_week = datetime.datetime.now().strftime('%U')
     weeks = weeks[weeks <= current_week]
-    available_types = df_grouped['Type'].unique()
+    available_types = df_grouped['type'].unique()
     
-    full_weeks_activities = pd.MultiIndex.from_product([weeks, available_types], names=['Week', 'Type']).to_frame(index=False)
-    df_full = pd.merge(full_weeks_activities, df_grouped, on=['Week', 'Type'], how='left')
+    full_weeks_activities = pd.MultiIndex.from_product([weeks, available_types], names=['week', 'type']).to_frame(index=False)
+    df_full = pd.merge(full_weeks_activities, df_grouped, on=['week', 'type'], how='left')
     
-    df_full['Distance(km)'] = df_full['Distance(km)'].fillna(0)
-    return df_full.sort_values(by=['Week', 'Type']).reset_index(drop=True)
+    df_full['distance(km)'] = df_full['distance(km)'].fillna(0)
+    return df_full.sort_values(by=['week', 'type']).reset_index(drop=True)
 
 # Calculer la durée et formater le DataFrame
 def calculate_duration(df):
-    df['Duration_hours'] = df['Distance(km)'] / df['AverageSpeed(km/h)']
-    df['Duration_hms'] = pd.to_timedelta(df['Duration_hours'], unit='h').apply(lambda x: str(x).split(' ')[-1].split('.')[0])
+    df['duration_hours'] = df['distance(km)'] / df['averagespeed(km/h)']
+    df['duration_hms'] = pd.to_timedelta(df['duration_hours'], unit='h').apply(lambda x: str(x).split(' ')[-1].split('.')[0])
     
     # Conversion des durées
-    df['Duration_seconds'] = df['Duration_hms'].apply(hms_to_seconds)
-    df_grouped = df.groupby('Type').agg({
-        'Distance(km)': 'sum',
-        'Duration_seconds': 'sum'
+    df['duration_seconds'] = df['duration_hms'].apply(hms_to_seconds)
+    df_grouped = df.groupby('type').agg({
+        'distance(km)': 'sum',
+        'duration_seconds': 'sum'
     }).reset_index()
     
-    df_grouped['Distance(km)'] = df_grouped['Distance(km)'].round(2)
-    df_grouped['Total_Duration_hms'] = df_grouped['Duration_seconds'].apply(seconds_to_hms)
-    df_grouped.drop(columns=['Duration_seconds'], inplace=True)
+    df_grouped['distance(km)'] = df_grouped['distance(km)'].round(2)
+    df_grouped['total_duration_hms'] = df_grouped['duration_seconds'].apply(seconds_to_hms)
+    df_grouped.drop(columns=['duration_seconds'], inplace=True)
     
     return df_grouped
 
@@ -94,7 +94,7 @@ def calculer_distance(df):
     return df
 
 def creer_graphique_denivele(df):
-    fig_deniv = px.line(df, x='distance', y='elevation', labels={'distance': 'Distance (m)', 'elevation': 'Élévation (m)'})
+    fig_deniv = px.line(df, x='distance', y='elevation', labels={'distance': 'distance (m)', 'elevation': 'élévation (m)'})
     fig_deniv.update_layout(
         paper_bgcolor='#fdf6ed',
         margin=dict(l=0, r=0, t=0, b=0),
@@ -121,16 +121,16 @@ def creer_carte(df):
 
 def creer_graphique_secteurs_duree(df):
     # Convertir la durée en secondes pour une meilleure comparaison
-    df['Total_Duration_seconds'] = df['Total_Duration_hms'].apply(hms_to_seconds)
+    df['total_duration_seconds'] = df['total_duration_hms'].apply(hms_to_seconds)
 
     # Ajouter une nouvelle colonne avec la durée au format hh:mm
-    df['Total_Duration_hhmm'] = df['Total_Duration_seconds'].apply(convertir_seconds_hhmm)
+    df['total_duration_hhmm'] = df['total_duration_seconds'].apply(convertir_seconds_hhmm)
 
     # Créer un graphique à secteurs basé sur la durée totale
-    fig_secteurs_duree = px.pie(df, values='Total_Duration_seconds', names='Type',
-                                title='Répartition des durées totales par activité',
-                                labels={'Total_Duration_seconds': 'Durée totale (s)', 'Type': 'Activité'},
-                                hover_data=['Total_Duration_hhmm'],  # Afficher la durée formatée en survol
+    fig_secteurs_duree = px.pie(df, values='total_duration_seconds', names='type',
+                                title='répartition des durées totales par activité',
+                                labels={'total_duration_seconds': 'durée totale (s)', 'type': 'activité'},
+                                hover_data=['total_duration_hhmm'],  # Afficher la durée formatée en survol
                               
                                )
 
@@ -145,7 +145,7 @@ def creer_graphique_secteurs_duree(df):
         margin=dict(l=50, r=50, t=100, b=50),
         showlegend=False,
         title={
-            'text': f"Répartition des durées totales par activité",
+            'text': f"répartition des durées totales par activité",
             'font': {'size': 22, 'color': '#2d2d2d', 'family': 'Roboto'}, 
             'x': 0.5, 
             'xanchor': 'center',
@@ -170,18 +170,18 @@ df2_full = prepare_weekly_activity_data(df1)
 df4 = calculate_duration(df1)
 
 # Définir les options disponibles pour les dropdowns
-available_type = df2_full['Type'].unique()
-available_week = sorted(df1['Week'].unique(), key=lambda x: int(x), reverse=True)
+available_type = df2_full['type'].unique()
+available_week = sorted(df1['week'].unique(), key=lambda x: int(x), reverse=True)
 
 
 columnDefs = [
-    {"field": "Date"},
-    {"field": "Type"},
-    {"field": "Distance(km)"},
-    {"field": "Duration"},
-    {"field": "AveragePace"},
-    {"field": "Climb(m)"},
-    {"field": "GPXFile", "hide": True}  # Masquer la colonne GPXFile
+    {"field": "date"},
+    {"field": "type"},
+    {"field": "distance(km)"},
+    {"field": "duration"},
+    {"field": "averagepace"},
+    {"field": "climb(m)"},
+    {"field": "gpxfile", "hide": True}  # Masquer la colonne GPXFile
 ]
 
 # Charger un exemple de fichier GPX pour la visualisation initiale
@@ -276,11 +276,11 @@ app.layout = html.Div([
     Input('Activity-dropdown', 'value')
 )
 def update_graph_and_table(selected_activity):
-    filtered_df = df2_full[df2_full['Type'] == selected_activity]
-    filtered_df4 = df4[df4['Type'] == selected_activity]
+    filtered_df = df2_full[df2_full['type'] == selected_activity]
+    filtered_df4 = df4[df4['type'] == selected_activity]
     
     # Création du graphique
-    fig = px.line(filtered_df, x='Week', y='Distance(km)', title=f'Distance for {selected_activity}', line_shape='spline')
+    fig = px.line(filtered_df, x='week', y='distance(km)', title=f'distance for {selected_activity}', line_shape='spline')
     fig.update_layout(
         plot_bgcolor='#fdf6ed',  # Change le fond du graphique (la zone des données)
         paper_bgcolor='#fdf6ed',  # Change le fond général de la figure
@@ -293,11 +293,11 @@ def update_graph_and_table(selected_activity):
         },
         # Style des légendes des axes
         xaxis_title={
-            'text': 'Week',
+            'text': 'week',
             'font': {'size': 14, 'color': '#4a4a4a', 'family': 'Roboto'}  # Taille, couleur, police
         },
         yaxis_title={
-            'text': 'Distance (km)',
+            'text': 'distance (km)',
             'font': {'size': 14, 'color': '#4a4a4a', 'family': 'Roboto'}  # Taille, couleur, police
         },
         # Style des étiquettes (ticks) des axes
@@ -310,8 +310,8 @@ def update_graph_and_table(selected_activity):
     )
     # Résumé des données
     if not filtered_df4.empty:
-        distance = filtered_df4.iloc[0]['Distance(km)']
-        duration_hms = filtered_df4.iloc[0]['Total_Duration_hms']
+        distance = filtered_df4.iloc[0]['distance(km)']
+        duration_hms = filtered_df4.iloc[0]['total_duration_hms']
         hours, minutes, _ = duration_hms.split(':')
         summary_text = html.Div([
             "En 2024, vous avez parcouru ",
@@ -332,7 +332,7 @@ def update_graph_and_table(selected_activity):
     Input('Week-dropdown', 'value')
 )
 def update_week_table(selected_week):
-    filtered_week_df = df1[df1['Week'] == selected_week]
+    filtered_week_df = df1[df1['week'] == selected_week]
     aggrid_data = filtered_week_df.to_dict('records')
     selected_rows = [filtered_week_df.iloc[0].to_dict()] if not filtered_week_df.empty else []
     return aggrid_data, selected_rows
@@ -356,7 +356,7 @@ def update_gpx_and_denivele(selected_rows, hoverData, gpx_data):
     # Si la sélection de lignes a déclenché le callback
     if ctx.triggered[0]['prop_id'] == 'row-selection-selected-rows.selectedRows':
         if selected_rows:
-            gpx_file = next(row['GPXFile'] for row in selected_rows if row['GPXFile'])
+            gpx_file = next(row['gpxfile'] for row in selected_rows if row['gpxfile'])
             df_gpx = lire_gpx(f'01-runkeeper-data-export-79592130-2024-09-24-083524/{gpx_file}')
             df_gpx = calculer_distance(df_gpx)
             fig_map = creer_carte(df_gpx)
