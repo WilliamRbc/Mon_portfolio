@@ -6,4 +6,3 @@ gpxpy
 datetime
 geopy
 gunicorn
-os
