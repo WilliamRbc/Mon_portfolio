@@ -6,7 +6,8 @@ import dash_ag_grid as dag
 import gpxpy
 import datetime
 from geopy.distance import geodesic
-from dash import callback_context 
+from dash import callback_context
+import os
 
 
 # Charger les données de l'export Runkeeper
@@ -390,5 +391,7 @@ def update_gpx_and_denivele(selected_rows, hoverData, gpx_data):
 # Exécution de l'application
 if __name__ == '__main__':
     app.run(debug=True)
+    port = int(os.environ.get("PORT", 8050))
+    app.run_server(host="0.0.0.0", port=port)
 
 
