@@ -165,7 +165,7 @@ app = app.server
 
 
 # Charger et préparer les données
-df1 = load_runkeeper_data(r'https://github.com/WilliamRbc/Runkeeper_Dashboard/blob/c0e687ea613771fbf0728ac1438700b3f0565442/01-runkeeper-data-export-79592130-2024-09-24-083524/cardioActivities.csv')
+df1 = load_runkeeper_data(r'01-runkeeper-data-export-79592130-2024-09-24-083524/cardioActivities.csv')
 df2_full = prepare_weekly_activity_data(df1)
 df4 = calculate_duration(df1)
 
@@ -185,7 +185,7 @@ columnDefs = [
 ]
 
 # Charger un exemple de fichier GPX pour la visualisation initiale
-df_gpx = lire_gpx(r'https://github.com/WilliamRbc/Runkeeper_Dashboard/blob/551ce4a1d88719bcc6e7f765317a552b427e3d14/01-runkeeper-data-export-79592130-2024-09-24-083524/2024-06-17-183552.gpx')
+df_gpx = lire_gpx(r'01-runkeeper-data-export-79592130-2024-09-24-083524/2024-09-08-173854.gpx')
 df_gpx = calculer_distance(df_gpx)
 fig = creer_carte(df_gpx)
 fig_deniv = creer_graphique_denivele(df_gpx)
