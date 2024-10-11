@@ -1,4 +1,4 @@
-ActivityId,Date,Type,RouteName,Distance(km),Duration,AveragePace,AverageSpeed(km/h),CaloriesBurned,Climb(m),AverageHeartRate(bpm),Friend'sTagged,Notes,GPXFile
+ActivityId,ate,Type,RouteName,Distance(km),Duration,AveragePace,AverageSpeed(km/h),CaloriesBurned,Climb(m),AverageHeartRate(bpm),Friend'sTagged,Notes,GPXFile
 69aed45f-7a34-4d3a-8850-8e0fec82fce5,15/09/2024 17:20,Running,,10.54,53:15:00,05:03,11.87,824,102,,,,2024-09-15-172032.gpx
 59589f49-0d6b-471f-a205-fdc4360a0927,11/09/2024 17:35,Swimming,,1.07,28:53:00,26:56:00,2.23,251,6,,,,2024-09-11-173515.gpx
 bd0d39b4-c15b-4260-9338-f7d36349b71b,10/09/2024 17:34,Running,,5.56,29:38:00,05:20,11.27,435,57,,,,2024-09-10-173437.gpx
