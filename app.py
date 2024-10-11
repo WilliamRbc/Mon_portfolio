@@ -13,9 +13,9 @@ from dash import callback_context
 def load_runkeeper_data():
     df = pd.read_csv(r'01-runkeeper-data-export-79592130-2024-09-24-083524/cardioActivities.csv', on_bad_lines='skip', encoding='utf-8')
     df.columns = df.columns.str.strip().str.lower()
-    df['Date'] = pd.to_datetime(df['ate'], format='%d/%m/%Y %H:%M')
-    df['Week'] = df['Date'].dt.strftime('%U')
-    df['Year'] = df['Date'].dt.strftime('%Y')
+    df['date'] = pd.to_datetime(df['ate'], format='%d/%m/%Y %H:%M')
+    df['week'] = df['date'].dt.strftime('%U')
+    df['year'] = df['date'].dt.strftime('%Y')
     return df[df['year'] == '2024']  # Filtrer uniquement les données de 2024
 
 # Préparer les données pour les activités par semaine
