@@ -77,16 +77,20 @@ app.layout = html.Div(className='app-container', children=[
     Output("navbar-collapse", "is_open"),
     Input("navbar-toggler", "n_clicks"),
     Input("page-content", "n_clicks"),  # Détecte les clics sur la page principale
-    Input("url", "pathname"),           # Détecte les changements d'URL
+    Input("url", "href"),               # Utilisation de href pour capturer le hash
     State("navbar-collapse", "is_open"),
 )
-def toggle_navbar(n_toggler_clicks, n_page_clicks, pathname, is_open):
+def toggle_navbar(n_toggler_clicks, n_page_clicks, href, is_open):
     # Ouvrir ou fermer en fonction des clics sur le toggler
     ctx = dash.callback_context
     if ctx.triggered and ctx.triggered[0]["prop_id"].startswith("navbar-toggler") and n_toggler_clicks:
         return not is_open
-    # Fermer le menu pour les autres clics (page principale ou changement d'URL)
-    return False
+    
+    # Fermer le menu pour les clics ailleurs ou lors d'une navigation vers une section (#section)
+    if href and "#" in href:
+        return False  # Ferme le menu après navigation vers une section spécifique
+
+    return False  # Ferme le menu pour les autres cas
 
 # Callback pour mettre à jour le titre de l'en-tête
 @app.callback(
