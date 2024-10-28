@@ -204,7 +204,7 @@ html, body {
     font-size: 1.0em;
     margin-top: 20px;
     text-transform: uppercase;
-    font-family: 'Lucida Sans', serif;
+    font-family: 'Lucida Sans Unicode', 'Lucida Sans', Arial, sans-serif;
 }
 
 
@@ -262,7 +262,7 @@ html, body {
     margin-bottom: 40px; /* Espace en dessous du titre */
     color: black; /* Couleur du texte */
     text-transform: uppercase;
-    font-family: 'Lucida Sans', serif;
+    font-family: 'Lucida Sans Unicode', 'Lucida Sans', Arial, sans-serif;
 }
 
 .presentation-text {
@@ -322,7 +322,7 @@ html, body {
     font-size: 4em; /* Taille du titre */
     color: rgb(255, 255, 255); /* Couleur du texte */
     text-transform: uppercase;
-    font-family: 'Lucida Sans', serif;
+    font-family: 'Lucida Sans Unicode', 'Lucida Sans', Arial, sans-serif;
     padding-top: 50px;
     text-align: center;
 }
@@ -335,7 +335,7 @@ html, body {
 .data-analyst-title {
         font-size: 1.3em; /* Taille du titre */
         color: black; /* Couleur du texte */
-        font-family: 'Lucida Sans', serif;
+        font-family: 'Lucida Sans Unicode', 'Lucida Sans', Arial, sans-serif;
 }
 
 .bold-text {
@@ -347,7 +347,7 @@ html, body {
     margin-bottom: 10px; /* Espace en dessous du titre */
     color: black; /* Couleur du texte */
     text-transform: uppercase;
-    font-family: 'Lucida Sans', serif;
+    font-family: 'Lucida Sans Unicode', 'Lucida Sans', Arial, sans-serif;
 }
 
 .experience-section {
@@ -365,7 +365,7 @@ html, body {
     margin-bottom: 50px; /* Espace en dessous du titre */
     color: black; /* Couleur du texte */
     text-transform: uppercase;
-    font-family: 'Lucida Sans', serif;
+    font-family: 'Lucida Sans Unicode', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
 }
 
@@ -383,7 +383,7 @@ html, body {
     margin-bottom: 50px; /* Espace en dessous du titre */
     color: black; /* Couleur du texte */
     text-transform: uppercase;
-    font-family: 'Lucida Sans', serif;
+    font-family: 'Lucida Sans Unicode', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
 }
 
@@ -406,7 +406,7 @@ html, body {
     padding-top: 50px;
     color: rgb(255, 255, 255); /* Couleur du texte */
     text-transform: uppercase;
-    font-family: 'Lucida Sans', serif;
+    font-family: 'Lucida Sans Unicode', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
 }
 
@@ -465,7 +465,7 @@ html, body {
     margin-top: 30px;
     color: rgb(255, 255, 255); /* Couleur du texte */
     text-transform: uppercase;
-    font-family: 'Lucida Sans', serif;
+    font-family: 'Lucida Sans Unicode', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
 }
 
@@ -515,7 +515,7 @@ html, body {
     font-size: 2.5em; /* Taille du titre */
     color: rgb(255, 255, 255); /* Couleur du texte */
     text-transform: uppercase;
-    font-family: 'Lucida Sans', serif;
+    font-family: 'Lucida Sans Unicode', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
     margin-bottom: 1em;
 }
@@ -589,18 +589,18 @@ html, body {
     font-size: 2.5em; /* Taille du titre */
     color: black; /* Couleur du texte */
     text-transform: uppercase;
-    font-family: 'Lucida Sans', serif;
+    font-family: 'Lucida Sans Unicode', 'Lucida Sans', Arial, sans-serif;
 }
 
 .texte-presentation-runkeeper{
     font-size: 1.2em;
-    font-family: 'Lucida Sans', serif;
+    font-family: 'Lucida Sans Unicode', 'Lucida Sans', Arial, sans-serif;
     margin-left: 1em;
 }
 
 .select-title {
     font-size: 1.8em;
-    font-family: 'Lucida Sans', serif;
+    font-family: 'Lucida Sans Unicode', 'Lucida Sans', Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
 }
