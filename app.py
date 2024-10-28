@@ -4,6 +4,7 @@ import dash_bootstrap_components as dbc
 
 # Initialiser l'application avec un thème Bootstrap
 app = Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = app.server
 
 # Ajoutez le script pour le défilement
 app.clientside_callback(
