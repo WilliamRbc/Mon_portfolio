@@ -3,7 +3,7 @@ from dash import Dash, html, dcc, Input, Output, State
 import dash_bootstrap_components as dbc
 
 # Initialiser l'application avec un thème Bootstrap
-app = Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.BOOTSTRAP],title="William Robache")
 server = app.server
 
 # Ajoutez le script pour le défilement
