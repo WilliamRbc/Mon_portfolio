@@ -367,11 +367,6 @@ layout = html.Div([
                                                     html.P("Main techno:", className="card-text label"),
                                                     html.P("Power BI & Python", className="card-text value"),
                                                 ], className="card-section"),
-
-                                                html.Small(
-                                                    "Dernière mise à jour il y a 3 minutes",
-                                                    className="card-text text-muted",
-                                                ),
                                             ]
                                         ),
                                         className="col-12 col-md-8 order-2 order-md-2",  # Le texte sera en bas sur petits écrans (order-2)
