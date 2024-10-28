@@ -26,7 +26,7 @@ app.clientside_callback(
 # Disposition de l'application
 app.layout = html.Div(className='app-container', children=[
     dcc.Location(id='url', refresh=False),
-    html.Meta(name="viewport", content="width=device-width, initial-scale=1.0"),
+    html.Meta(name="viewport", content="width=device-width, initial-scale=1.0"),  # Balise viewport
     html.Div(id="url-scroll"),  # Sortie fictive pour le callback clientside
 
         # En-tête avec le menu responsive
@@ -34,7 +34,16 @@ app.layout = html.Div(className='app-container', children=[
         dbc.Navbar(
             dbc.Container(
                 [
-                    dbc.NavbarBrand(id="navbar-title", className="header-title", href="/home"),
+                dbc.NavbarBrand(
+                    html.Div(
+                        [
+                            html.Img(src="/assets/wr_logo.png", height="30px", style={"margin-right": "10px"}),  # Image
+                            html.Span("Dashboard Runkeeper", id="navbar-title")  # Texte
+                        ],style={"display": "flex", "align-items": "center"}  # Flexbox pour aligner les éléments
+                    ),
+                    href="/home",
+                    className="header-title"
+            ),
                     dbc.NavbarToggler(id="navbar-toggler", n_clicks=0),
                     dbc.Collapse(
                         dbc.Nav(id='navbar-links', className="navbar-menu-small", navbar=True),
@@ -102,7 +111,7 @@ def update_navbar_title(pathname):
     if pathname == "/dashboard-runkeeper":
         title = "Dashboard Runkeeper"
     elif pathname == "/home":
-        title = "William ROBACHE"
+        title = "William Robache"
     return title
 
 # Callback pour mettre à jour les liens de la navbar
