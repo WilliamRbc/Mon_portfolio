@@ -26,6 +26,7 @@ app.clientside_callback(
 # Disposition de l'application
 app.layout = html.Div(className='app-container', children=[
     dcc.Location(id='url', refresh=False),
+    html.Meta(name="viewport", content="width=device-width, initial-scale=1.0"),
     html.Div(id="url-scroll"),  # Sortie fictive pour le callback clientside
 
         # En-tête avec le menu responsive
