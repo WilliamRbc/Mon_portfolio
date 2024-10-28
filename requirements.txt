@@ -1,8 +1,0 @@
-dash
-pandas
-plotly
-dash_ag_grid
-gpxpy
-datetime
-geopy
-gunicorn
