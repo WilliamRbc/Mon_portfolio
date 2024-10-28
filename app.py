@@ -75,13 +75,18 @@ app.layout = html.Div(className='app-container', children=[
 # Callback pour basculer l'affichage du menu burger
 @app.callback(
     Output("navbar-collapse", "is_open"),
-    [Input("navbar-toggler", "n_clicks")],
-    [State("navbar-collapse", "is_open")],
+    Input("navbar-toggler", "n_clicks"),
+    Input("page-content", "n_clicks"),  # Détecte les clics sur la page principale
+    Input("url", "pathname"),           # Détecte les changements d'URL
+    State("navbar-collapse", "is_open"),
 )
-def toggle_navbar(n_clicks, is_open):
-    if n_clicks:
+def toggle_navbar(n_toggler_clicks, n_page_clicks, pathname, is_open):
+    # Ouvrir ou fermer en fonction des clics sur le toggler
+    ctx = dash.callback_context
+    if ctx.triggered and ctx.triggered[0]["prop_id"].startswith("navbar-toggler") and n_toggler_clicks:
         return not is_open
-    return is_open
+    # Fermer le menu pour les autres clics (page principale ou changement d'URL)
+    return False
 
 # Callback pour mettre à jour le titre de l'en-tête
 @app.callback(
