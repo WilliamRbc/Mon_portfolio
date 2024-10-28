@@ -1,0 +1,813 @@
+/* styles.css */
+body {
+    font-family: Lucida Sans, serif;
+    background-color: #ffffff;
+    font-size: 0.9em;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;  /* S'assure que la taille des éléments inclut les bordures et padding */
+}
+
+
+
+.dropdown-container-activity{
+    display: grid;/* Aligne verticalement le label et le dropdown */
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    margin-bottom: 3em;
+    margin-left: 3em; 
+     /* Espace entre le label et le dropdown */
+}
+
+.dropdown-container-week {
+    display: grid;/* Aligne verticalement le label et le dropdown */
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    margin: 3em 0 3em 0;
+     /* Espace entre le label et le dropdown */
+}
+
+.custom-dropdown-week > .Select-control {
+    border-radius:2px;
+    border-color: #0000000e;
+    background-color:#fce32a00;
+    font-size: 17px;
+    width: 50%;
+}
+
+
+ .custom-dropdown-week > .Select-menu-outer {
+    background-color:#ffffff;
+    font-size: 1em;
+    width: 50%;
+ }
+
+ .custom-dropdown-activity > .Select-control {
+    border-radius:2px;
+    border-color: #0000000e;
+    background-color:#fce32a00;
+    font-size: 17px;
+    width: 20%;
+}
+
+
+ .custom-dropdown-activity > .Select-menu-outer {
+    background-color:#ffffff;
+    font-size: 17px;
+    width: 20%;
+ }
+
+
+.sumary-text {
+    margin: 20px 20px 20px 40px;
+    font-size: 18px;
+}
+
+
+.ag-theme-quartz-dark.ag-theme-customized {
+    --ag-foreground-color: #000000;
+    --ag-background-color: #fdf6ed;
+    --ag-header-background-color: #fdf6ed;
+    --ag-header-foreground-color: #000000;
+    --ag-selected-row-background-color: #f1d2ab;
+    --ag-row-hover-color: #d4cbc0;
+    --ag-wrapper-border-radius: 0px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    --ag-font-size: 12px;
+    --ag-row-height: 35px;
+    --ag-grid-size: 2px;
+    --ag-header-height: 55px;
+    white-space:normal;
+}
+
+.ag-theme-quartz-dark.ag-theme-customized .ag-layout-auto-height .ag-center-cols-viewport,
+.ag-theme-quartz-dark.ag-theme-customized .ag-layout-auto-height .ag-center-cols-container,
+.ag-theme-quartz-dark.ag-theme-customized .ag-layout-print .ag-center-cols-viewport,
+.ag-theme-quartz-dark.ag-theme-customized .ag-layout-print .ag-center-cols-container {
+    min-height: 0px !important;
+}
+
+.custom-graph-line {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
+    flex: 0 0 60%;
+    min-width: 300px;
+}
+
+.custom-pie-graph {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-left: 10px;
+    flex: 0 0 30%;
+    min-width: 300px;
+}
+
+.custom-denivele-graph  {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    height: 200px;
+}
+
+/* Conteneur principal de l'application */
+.app-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style de l'en-tête */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000000 !important;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-menu-small {
+    margin-left: auto;
+    text-align: center;   
+}
+
+/* Style du titre dans l'en-tête */
+.header-title {
+    flex-grow: 1;
+    text-align: left;
+    padding-left: 20px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 2.5em;
+}
+
+/* Style du titre de la page */
+.page-title {
+    text-align: left;
+    padding: 20px 0;
+}
+
+/* Menu de navigation */
+.menu {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+/* Lien de navigation */
+.menu-link {
+    color: #ffffff;
+    padding: 5px 0;
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    margin-right: 2em;
+}
+
+.menu-link:hover {
+    color: #e29b00;
+}
+
+/* Style pour la div principale */
+.main-content {
+    height: 80vh;
+    background-size: cover;
+    background-position: top; /* Focus sur le haut de l'image */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre le contenu verticalement */
+    align-items: center; /* Centre le contenu horizontalement */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Couleur sombre avec transparence */
+    background-image: url("/assets/Space 4k.jpeg");
+    background-repeat: no-repeat;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5); /* Ombre de 5px */
+}
+
+/* Style pour le titre principal */
+.main-title {
+    font-size: 3em;
+}
+
+/* Style pour le texte explicatif */
+.description-text {
+    font-size: 1.0em;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', serif;
+}
+
+
+
+/* Lien actif avec une ligne en haut (overline) */
+.menu-link.active {
+    color: #e29b00;
+}
+
+/* Pseudo-élément pour la ligne d'animation sous le lien */
+.menu-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0px; /* Positionne la ligne en dessous du lien */
+    left: 0;
+    width: 0; /* Initialement, la ligne a une largeur de 0 */
+    height: 2px;
+    background-color: rgb(255, 255, 255); /* Couleur de la ligne */
+    transition: width 0.4s ease; /* Transition pour l'animation */
+}
+
+/* Survol du lien - la ligne s'étend de gauche à droite */
+.menu-link:hover::before {
+    width: 100%; /* La ligne prend toute la largeur sur hover */
+}
+
+
+/* Style pour chaque section de la carte d'identité */
+.card-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -10px; /* Espace entre chaque section */
+    border: none;
+}
+
+/* Style pour les labels (Nom, Prénom, etc.) */
+.card-text.label {
+    font-weight: bold;
+    width: 50%; /* Ajuste la largeur du label */
+}
+
+/* Style pour les valeurs (Dupont, Jean, etc.) */
+.card-text.value {
+    width: 50%; /* Ajuste la largeur de la valeur */
+    text-align: right; /* Aligne la valeur à droite */
+}
+
+.img-fluid{ 
+    width: 20%;
+}
+
+
+.presentation-title {
+    font-size: 2.5em; /* Taille du titre */
+    margin-bottom: 40px; /* Espace en dessous du titre */
+    color: black; /* Couleur du texte */
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', serif;
+}
+
+.presentation-text {
+    color: black; /* Couleur du texte avec transparence */
+    font-size: 1.1em; /* Taille du texte */
+    margin-right: 25px;
+    text-align: justify;
+}
+
+.presentation-section {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 70px;
+}
+
+.responsive-img-CI {
+    width: 70%;  /* Réduction supplémentaire */
+    justify-content: center;
+    display: block;
+}
+
+
+.card {
+    --bs-card-border-color: 0;
+    margin-top: 4em;
+}
+
+.footer {
+    background-color: black; /* Fond noir */
+    color: white; /* Couleur du texte */
+    padding: 20px; /* Espacement intérieur */
+    text-align: center; /* Centrer le texte */
+    position: relative; /* Pour que le footer se positionne correctement */
+    bottom: 0;
+    width: 100%; /* S'assurer que le footer prend toute la largeur */
+}
+
+.footer-text {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer-links {
+    margin-top: 5px;
+}
+
+.footer-link {
+    color: #4f4e4b; /* Couleur des liens */
+    text-decoration: none; /* Pas de soulignement */
+}
+
+.footer-link:hover {
+    text-decoration: underline; /* Souligner au survol */
+}
+
+.experience-title {
+    font-size: 4em; /* Taille du titre */
+    color: rgb(255, 255, 255); /* Couleur du texte */
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', serif;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.accordeon {
+    margin: 50px 150px 150px 150px;
+    opacity: 0.95;
+}
+
+.data-analyst-title {
+        font-size: 1.3em; /* Taille du titre */
+        color: black; /* Couleur du texte */
+        font-family: 'Lucida Sans', serif;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.card-title {
+    font-size: 2em; /* Taille du titre */
+    margin-bottom: 10px; /* Espace en dessous du titre */
+    color: black; /* Couleur du texte */
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', serif;
+}
+
+.experience-section {
+    background-image: url("/assets/experience-section.png");
+    background-repeat: no-repeat;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5); /* Ombre de 5px */
+    background-size: cover;
+    background-position: top; /* Focus sur le haut de l'image */
+    padding-bottom: 10px;
+}
+
+
+.perso-title {
+    font-size: 2.5em; /* Taille du titre */
+    margin-bottom: 50px; /* Espace en dessous du titre */
+    color: black; /* Couleur du texte */
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', serif;
+    text-align: center;
+}
+
+.perso-section {
+    margin: 20px 70px 90px 70px;
+}
+
+.perso-text {
+    color: black; /* Couleur du texte avec transparence */
+    font-size: 1.1em; /* Taille du texte */
+}
+
+.competence-title{
+    font-size: 2.5em; /* Taille du titre */
+    margin-bottom: 50px; /* Espace en dessous du titre */
+    color: black; /* Couleur du texte */
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', serif;
+    text-align: center;
+}
+
+.header-competence{
+    text-align: center;
+}
+
+.ag-theme-alpine.ag-theme-customized .ag-header-cell-label {
+    white-space: normal; /* Permet le wrapping du texte dans les headers */
+}
+
+.ag-header-group-cell-label, .ag-header-cell-label {
+    justify-content: center;
+}
+
+
+.ils-m-ont-fait-confiance-title {
+    font-size: 2.5em; /* Taille du titre */
+    margin-bottom: 2em; /* Espace en dessous du titre */
+    padding-top: 50px;
+    color: rgb(255, 255, 255); /* Couleur du texte */
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', serif;
+    text-align: center;
+}
+
+.grid_style {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 40px;
+    border: 0px;
+    justify-content: center;
+    align-items: center; /* Centre le contenu horizontalement */
+    display: flex;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.grid-section {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+
+
+.image_style {
+    max-width: 100%;
+    background-color: rgb(255, 255, 255);
+    width: 150px;
+    height: 100px;
+    object-fit:contain;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.image_style:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.avis-section {
+    background-size: cover;
+    background-position: top; /* Focus sur le haut de l'image */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre le contenu horizontalement */
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Couleur sombre avec transparence */
+    background-image: url("/assets/avis-background.png");
+    background-repeat: no-repeat;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5); /* Ombre de 5px */
+    padding-bottom: 20px;
+}
+
+.avis-title {
+    font-size: 3.5em; /* Taille du titre */
+    margin-bottom: 20px; /* Espace en dessous du titre */
+    margin-top: 30px;
+    color: rgb(255, 255, 255); /* Couleur du texte */
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', serif;
+    text-align: center;
+}
+
+.card-text-avis {
+    font-size: 12px;
+    color: white;
+}
+
+.card-title-avis {
+    color: white;
+}
+
+.card-title-avis-métier {
+    color: white;
+}
+
+.card-indiv {
+    background-color:#000000bf;
+    border: solid;
+    border-width: 3px;
+    border-color: #000000;
+}
+
+.small-text-avis {
+    color: white;
+    font-weight: 300;
+}
+
+.ils-m-ont-fait-confiance-section {
+    background-color: black;
+    padding-bottom: 30px;
+    
+}
+
+.contact-section {
+    padding-top: 6em;
+    background-color: black;
+    color: white;
+    padding-bottom: 3em;
+}
+
+
+.Contact-section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em; /* Taille du titre */
+    color: rgb(255, 255, 255); /* Couleur du texte */
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', serif;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+
+.colonne-indiv-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.row-indiv-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.link-contact {
+    text-decoration: none;
+    border-radius: 5px;
+    position: relative;
+    color: rgb(255, 255, 255);
+    padding: 5px 0;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    margin: 15px 0 15px 0;
+}
+
+.link-contact:hover {
+    color: #e29b00;
+    background-color: transparent;
+    border: none;
+}
+
+.link-contact.active {
+    text-decoration: overline;
+    color: rgb(255, 255, 255);
+}
+
+/* Pseudo-élément pour la ligne d'animation sous le lien */
+.link-contact::before {
+    content: '';
+    position: absolute;
+    bottom: 0px; /* Positionne la ligne en dessous du lien */
+    left: 0;
+    width: 0; /* Initialement, la ligne a une largeur de 0 */
+    height: 2px;
+    background-color: rgb(255, 255, 255); /* Couleur de la ligne */
+    transition: width 0.4s ease; /* Transition pour l'animation */
+}
+
+/* Survol du lien - la ligne s'étend de gauche à droite */
+.link-contact:hover::before {
+    width: 100%; /* La ligne prend toute la largeur sur hover */
+}
+
+.div-section-runkeeper {
+    background-color: #fdf6ed;
+}
+
+.section-presentation-runkeeper {
+    padding: 3em 5em 2em 4em;
+}
+
+.runkeeper-presentation-title{
+    margin-bottom: 1em;
+    font-size: 2.5em; /* Taille du titre */
+    color: black; /* Couleur du texte */
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', serif;
+}
+
+.texte-presentation-runkeeper{
+    font-size: 1.2em;
+    font-family: 'Lucida Sans', serif;
+    margin-left: 1em;
+}
+
+.select-title {
+    font-size: 1.8em;
+    font-family: 'Lucida Sans', serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.recap-2024-activity {
+    margin-bottom: 3em;
+}
+
+.graph-gps-map{
+    margin-top: 3em;
+}
+
+.graph-activity-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap
+}
+
+.left-colonne-week-runkeeper {
+    flex: 0 0 37%;
+    display: flex;
+    flex-Direction: column;
+    padding-Right: 20px;
+    min-width: 300px;
+}
+.right-colonne-week-runkeeper {
+        flex: 0 0 57%;
+        display: flex;
+        flex-Direction: column;
+        margin-bottom: 5em;
+        min-width: 300px
+}
+
+/* Pour les petits écrans, réduire les marges */
+@media (max-width: 768px) {
+    .header-title {
+        font-size: 2em;
+    }
+    .navbar {
+        padding-bottom: 1.5em;
+        padding-top: 1.2em;
+    }
+    .presentation-section {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px; /* Ajoute une marge à droite pour équilibrer */
+    }
+    .presentation-text {
+        text-align: justify;
+        margin-right: 0;
+    }
+    .responsive-img-CI {
+        width: 30%;  /* Par exemple, réduire la taille à 80% */
+        margin: 0 auto;  /* Centrer l'image */
+    }
+    .card-section {
+        margin: 0px;
+    }
+    .accordeon{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px; /* Ajoute une marge à droite pour équilibrer */
+    }
+    .perso-section {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px; /* Ajoute une marge à droite pour équilibrer */
+    }
+    .perso-text {
+        text-align: justify;
+    }
+    .img-fluid{ 
+        width: 25%;
+    }
+    .section-presentation-runkeeper {
+        padding: 0PX;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align: justify;
+    }
+    .custom-dropdown-activity > .Select-control {
+        width: 50%;
+    }
+     .custom-dropdown-activity > .Select-menu-outer {
+        width: 50%;
+     }
+     .recap-2024-activity {
+        text-align: justify;
+     }
+     .custom-graph-line {
+        margin-right: 0px;
+        flex: 100%;
+        width: auto;
+        margin: 20PX;
+        height: 20em;
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    }
+    .custom-pie-graph {
+        margin-right: 0px;
+        flex: 100%;
+        width: auto;
+        margin: 20PX;
+        height: 25em;
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    }
+    .left-colonne-week-runkeeper {
+        flex: 100%;
+        width: auto;
+        margin: 20PX;
+        padding: 0px;
+    }
+    .right-colonne-week-runkeeper {
+        flex: 100%;
+        width: auto;
+        margin: 20PX;
+    }
+    .graph-gps-map {
+        margin-top: 0;
+    }
+    .custom-dropdown-week > .Select-control {
+        width: 90%;
+    }
+     .custom-dropdown-week > .Select-menu-outer {
+        width: 90%;
+    }
+    .texte-presentation-runkeeper{
+        margin: 0;
+    }
+    .sumary-text{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .dropdown-container-activity {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+/* Pour les très petits écrans (mobiles) */
+@media (max-width: 576px) {
+    .header-title {
+        font-size: 1.5em;
+    }
+    .navbar {
+        padding-bottom: 1.5em;
+        padding-top: 1.2em;
+        background-color: #00000017;
+    }
+    .presentation-section {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .presentation-text {
+        text-align: justify;
+        margin-right: 0;
+    }
+    .responsive-img-CI {
+        width: 30%; /* Prend toute la largeur sur petits écrans */
+        height: auto; /* Garder les proportions */
+    }
+    .card-section {
+        margin: 0px;
+    }
+    .accordeon{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .perso-section{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .perso-text {
+        text-align: justify;
+    }
+    .img-fluid{ 
+        width: 25%;
+    }
+    .grid_style {
+        grid-gap: 10px;
+    }
+    .section-presentation-runkeeper {
+        padding: 0PX;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align: justify;
+    }
+    .custom-dropdown-activity > .Select-control {
+        width: 90%;
+    }
+     .custom-dropdown-activity > .Select-menu-outer {
+        width: 90%;
+     }
+     .recap-2024-activity {
+        text-align: justify;
+     }
+}
