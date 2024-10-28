@@ -34,7 +34,7 @@ app.layout = html.Div(className='app-container', children=[
         dbc.Navbar(
             dbc.Container(
                 [
-                    dbc.NavbarBrand(id="navbar-title", className="header-title"),
+                    dbc.NavbarBrand(id="navbar-title", className="header-title", href="/home"),
                     dbc.NavbarToggler(id="navbar-toggler", n_clicks=0),
                     dbc.Collapse(
                         dbc.Nav(id='navbar-links', className="navbar-menu-small", navbar=True),
@@ -102,7 +102,7 @@ def update_navbar_title(pathname):
     if pathname == "/dashboard-runkeeper":
         title = "Dashboard Runkeeper"
     elif pathname == "/home":
-        title = "Mon portfolio"
+        title = "William ROBACHE"
     return title
 
 # Callback pour mettre à jour les liens de la navbar
