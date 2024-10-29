@@ -525,8 +525,8 @@ html, body {
 .colonne-indiv-contact {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: top;
+    justify-content: top;
     padding: 20px;
 }
 
