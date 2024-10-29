@@ -94,7 +94,7 @@ card2 = dbc.Card(
             [
                 dbc.Col(
                     dbc.CardImg(
-                        src="/assets/man3.png",
+                        src="/assets/man.png",
                         className="img-fluid rounded-start",
                     ),
                     className="col-12",
@@ -102,14 +102,14 @@ card2 = dbc.Card(
                 dbc.Col(
                     dbc.CardBody(
                         [
-                            html.H5("Antoine Navarro", className="card-title-avis"),
-                            html.H6("Responsable pôle performance achat - Intersport", className="card-title-avis-métier"),
+                            html.H5("Jean-Pascal", className="card-title-avis"),
+                            html.H6("Data Analyst freelance", className="card-title-avis-métier"),
                             html.P(
-                                "William a fait preuve d'ouverture et d'une proactivité qui lui ont permis d'exceller dans le poste de business analyst. Son intégration rapide lui a également permis d'appréhender au mieux l'écosysteme de la coopérative pour proposer des rapports adaptés à chaque besoin.",
+                                "Tres bonne expérience avec William, il a pu m'aider pour la création d'un tableau de bord Power BI pour un de mes clients ! Tres bonne communication, et rapide dans l'éxecution, je recommande.",
                                 className="card-text-avis",
                             ),
                             html.Small(
-                                "25/01/2022",
+                                "27/06/2024",
                                 className="small-text-avis",
                             ),
                         ]
@@ -202,7 +202,7 @@ card5 = dbc.Card(
             [
                 dbc.Col(
                     dbc.CardImg(
-                        src="/assets/man.png",
+                        src="/assets/man3.png",
                         className="img-fluid rounded-start",
                     ),
                     className="col-12",
@@ -210,14 +210,14 @@ card5 = dbc.Card(
                 dbc.Col(
                     dbc.CardBody(
                         [
-                            html.H5("Jean-Pascal", className="card-title-avis"),
-                            html.H6("Data Analyst freelance", className="card-title-avis-métier"),
+                            html.H5("Antoine Navarro", className="card-title-avis"),
+                            html.H6("Responsable pôle performance achat - Intersport", className="card-title-avis-métier"),
                             html.P(
-                                "Tres bonne expérience avec William, il a pu m'aider pour la création d'un tableau de bord Power BI pour un de mes clients ! Tres bonne communication, et rapide dans l'éxecution, je recommande.",
+                                "William a fait preuve d'ouverture et d'une proactivité qui lui ont permis d'exceller dans le poste de business analyst. Son intégration rapide lui a également permis d'appréhender au mieux l'écosysteme de la coopérative pour proposer des rapports adaptés à chaque besoin.",
                                 className="card-text-avis",
                             ),
                             html.Small(
-                                "27/06/2024",
+                                "25/01/2022",
                                 className="small-text-avis",
                             ),
                         ]
@@ -231,8 +231,6 @@ card5 = dbc.Card(
     className="card-indiv",
     style={"maxWidth": "540px"},
 )
-
-
 
 # Disposition des cartes en grille
 grid = dbc.Row(
