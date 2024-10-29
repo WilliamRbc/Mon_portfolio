@@ -232,6 +232,7 @@ card5 = dbc.Card(
     style={"maxWidth": "540px"},
 )
 
+
 # Disposition des cartes en grille
 grid = dbc.Row(
     [
@@ -581,6 +582,18 @@ layout = html.Div([
                                     "LinkedIn",
                                     className="link-contact",
                                     href="https://www.linkedin.com/in/william-robache-data-analyst/",
+                                    target="_blank"
+                                )
+                            ],
+                            className="row-indiv-contact"
+                        ),
+                        html.Div(
+                            [
+                                html.Img(src="/assets/github-mark-white.png", style={"height": "30px", "margin-right": "8px"}),
+                                dbc.Button(
+                                    "GitHub",
+                                    className="link-contact",
+                                    href="https://github.com/WilliamRbc",
                                     target="_blank"
                                 )
                             ],
