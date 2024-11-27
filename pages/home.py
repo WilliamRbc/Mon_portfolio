@@ -644,6 +644,19 @@ layout = html.Div([
                             ],
                             className="row-indiv-contact"
                         ),
+                        html.Div(
+                            [
+                                html.Img(src="/assets/calendly.png", style={"height": "30px", "margin-right": "8px"}),
+                                dbc.Button(
+                                    "Prendre RDV",
+                                    id="hover-target-mail",
+                                    className="link-contact",
+                                    href="https://calendly.com/william-robache-lrpk/1-hour-meeting",
+                                    target="_blank"
+                                )
+                            ],
+                            className="row-indiv-contact"
+                        )
                     ]),
                     width=12, md=4, className="colonne-indiv-contact"  # Change width to 12 for small screens
                 ),
