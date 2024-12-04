@@ -457,7 +457,7 @@ html, body {
     background-image: url("/assets/avis-background.png");
     background-repeat: no-repeat;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5); /* Ombre de 5px */
-    padding-bottom: 20px;
+    padding-bottom: 70px;
 }
 
 .avis-title {
